@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #007BFF;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+}
+
+.login-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 300px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 24px;
+  color: #333;
+  margin: 10px 0;
+}
+
+input {
+  width: 100%; /* Chiều rộng 100% */
+  padding: 10px;
+  margin: 10px 0; /* Khoảng cách trên dưới */
+  border: 1px solid #ccc; /* Viền cho trường nhập liệu */
+  border-radius: 5px; /* Bo góc */
+  box-sizing: border-box; /* Đảm bảo padding không làm tăng chiều rộng */
+}
+
+button {
+  width: 100%; /* Chiều rộng 100% */
+  padding: 10px;
+  background-color: #007BFF; /* Màu nền cho nút */
+  border: none; /* Bỏ viền */
+  border-radius: 5px; /* Bo góc */
+  color: white; /* Màu chữ */
+  cursor: pointer; /* Con trỏ chuột khi hover */
+}
+
+button:hover {
+  background-color: #0056b3; /* Màu nền khi hover */
+}
+
+.message {
+  margin-top: 10px; /* Khoảng cách trên */
+  color: red; /* Màu chữ cho thông báo */
+}
+
+a {
+  display: block; /* Hiển thị thành khối */
+  margin-top: 10px; /* Khoảng cách trên */
+  color: #007BFF; /* Màu chữ cho link */
+  text-decoration: none; /* Bỏ gạch chân */
+}
+
+a:hover {
+  text-decoration: underline; /* Gạch chân khi hover */
+}

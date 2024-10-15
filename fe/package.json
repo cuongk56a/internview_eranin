@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "lite-server"
+  },
+  "dependencies": {
+    "angular": "^1.8.2"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}

@@ -1,0 +1,14 @@
+<div class="background">
+    <div class="login-container">
+        <h2>Đăng Ký</h2>
+        <form ng-submit="register()">
+            <input type="text" ng-model="newUser.fullName" placeholder="Tên của bạn" required>
+            <input type="text" ng-model="newUser.email" placeholder="Email" required>
+            <input type="password" ng-model="newUser.password" placeholder="Mật khẩu" required>
+            <input type="password" ng-model="newUser.confirmPassword" placeholder="Nhập lại mật khẩu" required>
+            <button type="submit">Đăng Ký</button>
+        </form>
+        <div ng-if="message" class="message">{{ message }}</div>
+        <a href="#!/login">Đăng Nhập</a>
+    </div>
+  </div>

@@ -1,0 +1,14 @@
+<div class="background">
+  <div class="login-container">
+      <h2>ĐĂNG NHẬP</h2>
+      <form ng-submit="login()">
+          <input type="email" ng-model="credentials.email" placeholder="Email" required>
+          <input type="password" ng-model="credentials.password" placeholder="Mật khẩu" required>
+          <button type="button" ng-click="sendCode()">Lấy mã</button>
+          <input type="text" ng-model="credentials.code" placeholder="Nhập mã" ng-if="isCodeSent" required>
+          <button type="submit" ng-if="isCodeSent">Đăng nhập</button>
+      </form>
+      <div ng-if="message" class="message">{{ message }}</div>
+      <a href="#!/register">Bạn chưa có tài khoản? Đăng ký!</a>
+  </div>
+</div>
