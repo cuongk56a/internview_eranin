@@ -1,9 +1,10 @@
-angular.module("myApp").controller("UserDetailController", [
+angular.module("myApp").controller("userController", [
   "$scope",
   "$http",
   "$window",
+  "$location",
   "authService",
-  function ($scope, $http, $window, authService) {
+  function ($scope, $http, $window,$location, authService) {
     $scope.user = {};
 
     function getUserDetails() {
@@ -14,16 +15,19 @@ angular.module("myApp").controller("UserDetailController", [
         function (error) {
           $window.localStorage.removeItem("accessToken");
           $window.localStorage.removeItem("refreshToken");
+          $window.localStorage.removeItem("userId");
           $location.path("/login");
         }
       );
     }
 
+    getUserDetails();
+
     $scope.logout = function () {
       $window.localStorage.removeItem("accessToken");
       $window.localStorage.removeItem("refreshToken");
+      $window.localStorage.removeItem("userId");
       $location.path("/login");
     };
-    getUserDetails();
   },
 ]);

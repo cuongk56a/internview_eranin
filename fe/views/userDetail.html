@@ -1,6 +1,14 @@
-<h1>Thông Tin Người Dùng</h1>
-<div>
-    <p>Tên đăng nhập: {{ user.username }}</p>
-    <p>Địa chỉ email: {{ user.email }}</p>
-    <button ng-click="logout()">Đăng Xuất</button>
-</div>
+<div class="background">
+    <div class="login-container" >
+      <h1>Thông Tin Người Dùng</h1>
+      <div class="info-field">
+        <label>Họ tên</label>
+        <div class="info-box">{{ user.fullName }}</div>
+      </div>
+      <div class="info-field">
+        <label>Địa chỉ email:</label>
+        <div class="info-box">{{ user.email }}</div>
+      </div>
+      <button ng-click="logout()">Đăng Xuất</button>
+    </div>
+  </div>

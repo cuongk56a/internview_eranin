@@ -39,18 +39,20 @@ const register = async (req: Request, res: Response, next: NextFunction) => {
 };
 
 const login = async (req: Request, res: Response, next: NextFunction) => {
-  const {email, password} = req.body;
+  const {email, password, code} = req.body;
   try {
-    const user: IUserDoc | null = await userService.getOne({email});
+    const [fCode, user]= await Promise.all([getRedisCode(email), userService.getOne({email})]);
     if (!user) {
       res.status(httpStatus.NOT_FOUND).send({message: 'Not Found User!'});
+    } else if(!code || fCode != code){
+      res.status(httpStatus.BAD_REQUEST).send({message: 'Code Not Success!'});
     } else {
       const check = await checkPassword(password, user?.hashedPassword);
       if (check) {
         const token = await getNewToken({userId: user.id});
         const refresh = await getNewRefreshToken({userId: user.id});
         await setRefresh(refresh, user.id)
-        res.send({ message: 'Đăng nhập thành công!', accessToken: token, refreshToken: refresh});
+        res.send({ message: 'Đăng nhập thành công!',userId: user.id, accessToken: token, refreshToken: refresh});
       } else {
         res.status(httpStatus.BAD_REQUEST).send({message: 'Email Or Password Not Incorrect!'});
       }

@@ -4,9 +4,14 @@
       <form ng-submit="login()">
           <input type="email" ng-model="credentials.email" placeholder="Email" required>
           <input type="password" ng-model="credentials.password" placeholder="Mật khẩu" required>
-          <button type="button" ng-click="sendCode()">Lấy mã</button>
-          <input type="text" ng-model="credentials.code" placeholder="Nhập mã" ng-if="isCodeSent" required>
-          <button type="submit" ng-if="isCodeSent">Đăng nhập</button>
+          <div class="code-container">
+            <input type="text" ng-model="credentials.code" placeholder="Nhập mã" required>
+            <button type="button" ng-click="sendCode()" ng-disabled="countdown > 0">
+              <span ng-if="countdown === 0">Lấy mã</span>
+              <span ng-if="countdown > 0">{{countdown}}s</span>
+          </button>
+        </div>
+          <button type="submit">Đăng nhập</button>
       </form>
       <div ng-if="message" class="message">{{ message }}</div>
       <a href="#!/register">Bạn chưa có tài khoản? Đăng ký!</a>

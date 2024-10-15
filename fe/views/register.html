@@ -1,6 +1,6 @@
 <div class="background">
     <div class="login-container">
-        <h2>Đăng Ký</h2>
+        <h2>ĐĂNG KÝ</h2>
         <form ng-submit="register()">
             <input type="text" ng-model="newUser.fullName" placeholder="Tên của bạn" required>
             <input type="text" ng-model="newUser.email" placeholder="Email" required>
@@ -9,6 +9,6 @@
             <button type="submit">Đăng Ký</button>
         </form>
         <div ng-if="message" class="message">{{ message }}</div>
-        <a href="#!/login">Đăng Nhập</a>
+        <a href="#!/login">Bạn đã có tài khoản? Đăng nhập!</a>
     </div>
   </div>

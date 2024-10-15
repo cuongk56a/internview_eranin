@@ -1,8 +1,9 @@
 angular.module("myApp").factory("authService", [
   '$http',
-  function ($http) {
+  '$window',
+  function ($http,$window) {
     this.sendCode = function (email) {
-      return $http.get(`http://localhost:3000/api/v1/auth/token/?email=${email}`);
+      return $http.get(`http://localhost:3000/api/v1/auth/get-code-mail/?email=${email}`);
     };
 
     this.login = function (credentials) {
@@ -28,6 +29,6 @@ angular.module("myApp").factory("authService", [
       });
     };
 
-    // return service;
+    return this;
   },
 ]);
